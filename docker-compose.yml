@@ -1,0 +1,14 @@
+services:
+  safevision:
+    build:
+      context: .
+    container_name: safevision
+    env_file:
+      - .env
+    environment:
+      SAFEVISION_ENV: production
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
